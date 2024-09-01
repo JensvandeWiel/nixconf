@@ -27,6 +27,14 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+      worklaptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./systems/worklaptop/configuration.nix
+          ./users/userdef.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
