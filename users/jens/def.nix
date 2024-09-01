@@ -47,6 +47,7 @@
       go-task
       vlang
       bazel
+      gnupg
     ];
   };
 }
