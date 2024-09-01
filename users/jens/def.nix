@@ -48,7 +48,7 @@
       vlang
       bazel
       gnupg
-      pinentry-qt
+      pinentry-all
     ];
   };
 }
