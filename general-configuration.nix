@@ -162,7 +162,7 @@
       la = "ls -a";
       update = "sudo nixos-rebuild switch";
     };
-    OhMyZsh = {
+    ohMyZsh = {
       enable = true;
       plugins = ["bazel" "docker" "git" "github" "golang" "rebar" "laravel"];
       theme = "robbyrussell";
