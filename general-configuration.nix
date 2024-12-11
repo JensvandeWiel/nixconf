@@ -53,9 +53,9 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;  
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;  
+  services.desktopManager.plasma6.enable = true;
 
   xdg.portal.enable = true;
 
@@ -162,7 +162,7 @@
       la = "ls -a";
       update = "sudo nixos-rebuild switch";
     };
-    oh-my-zsh = {
+    OhMyZsh = {
       enable = true;
       plugins = ["bazel" "docker" "git" "github" "golang" "rebar" "laravel"];
       theme = "robbyrussell";
