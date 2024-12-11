@@ -49,6 +49,8 @@
       bazel
       gnupg
       pinentry-all
+      zed-editor
+      nerd-fonts.jetbrains-mono
     ];
   };
 }
