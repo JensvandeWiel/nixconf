@@ -24,10 +24,10 @@
       php84Packages.composer
       corretto21
       dart
-      dotnet-sdk_7
+      dotnet-sdk_9
       dotnet-sdk_8
       dotnet-runtime_8
-      dotnet-runtime_7
+      dotnet-runtime_9
       elixir_1_17
       erlang_27
       flutter
