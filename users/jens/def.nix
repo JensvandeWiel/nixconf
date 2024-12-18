@@ -19,6 +19,7 @@
       postman
       # Programming tools
       gh
+      nixd
       cmake
       php84
       php84Packages.composer

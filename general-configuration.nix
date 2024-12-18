@@ -18,6 +18,8 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 80;
+
   time.hardwareClockInLocalTime = true;
 
 
@@ -131,7 +133,6 @@
   # networking.firewall.enable = false;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
     elisa
     gwenview
     kate
@@ -147,10 +148,14 @@
 
 
   virtualisation.docker.enable = true;
-  virtualisation.docker.rootless.enable = true;
-  virtualisation.docker.rootless.setSocketVariable = true;
 
   system.userActivationScripts.zshrc = "touch .zshrc";
+
+  programs.direnv = {
+      enable = true;
+      enableZshIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
 
   programs.steam.enable = true;
   programs.zsh = {
