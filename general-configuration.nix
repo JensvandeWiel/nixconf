@@ -71,7 +71,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -154,6 +154,7 @@
   programs.direnv = {
       enable = true;
       enableZshIntegration = true; # see note on other shells below
+      silent = true;
       nix-direnv.enable = true;
     };
 
