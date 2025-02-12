@@ -35,6 +35,14 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+      mainpc = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./systems/mainpc/configuration.nix
+          ./users/userdef.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
