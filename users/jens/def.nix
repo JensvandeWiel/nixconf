@@ -52,6 +52,7 @@
       pinentry-all
       zed-editor
       nerd-fonts.jetbrains-mono
+      spotify
     ];
   };
 }
