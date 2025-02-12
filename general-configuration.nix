@@ -17,6 +17,8 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.default = "saved";
+  boot.loader.grub.extraEntries = "GRUB_SAVEDEFAULT=true";
 
   boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 80;
 
