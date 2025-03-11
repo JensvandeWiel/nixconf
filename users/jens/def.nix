@@ -53,6 +53,8 @@
       zed-editor
       nerd-fonts.jetbrains-mono
       spotify
+      ladybird
+      lazydocker
     ];
   };
 }
