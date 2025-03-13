@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, wsl, ... }:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -78,6 +77,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-
-  services.syncthing.enable = true;
+  services.syncthing = {
+    enable = true;
+    guiAddress = "127.0.0.1:7374";
+  };
 }

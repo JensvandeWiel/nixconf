@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-wsl, ... }@inputs: {
     nixosConfigurations = {
       virtualbox = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -39,6 +40,16 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./systems/mainpc/configuration.nix
+          ./users/userdef.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        system = "x86_64-linux";
+        modules = [
+          nixos-wsl.nixosModules.default
+          ./systems/wsl/configuration.nix
           ./users/userdef.nix
           inputs.home-manager.nixosModules.default
         ];
