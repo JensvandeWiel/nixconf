@@ -71,7 +71,7 @@
   #  /etc/profiles/per-user/jens/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # NIXOS_OZONE_WL = "1";
+    PATH = "$HOME/.config/composer/vendor/bin:$PATH";
   };
 
   # Let Home Manager install and manage itself.
