@@ -7,7 +7,12 @@
         url = "https://discord.com/api/download?platform=linux&format=tar.gz";
         sha256 = "0bgvmdw65q5pr671chfihgv1wlqjkkr3rnbllr93zlf03ihx62iq";
       };
-    }); 
+    });
+    
+    termius = super.termius.overrideAttrs (oldAttrs: {
+      nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ super.autoPatchelfHook ];
+      buildInputs = (oldAttrs.buildInputs or []) ++ [ super.sqlite ];
+    });
   })];
 
   home-manager.users."jens" = import ./home.nix;
