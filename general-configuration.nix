@@ -9,7 +9,7 @@
     [
       ./users/userdef.nix
     ];
-  
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -18,7 +18,7 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.default = "saved";
-  boot.loader.grub.extraEntries = "GRUB_SAVEDEFAULT=true";
+
 
   boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 80;
 
@@ -58,7 +58,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;  
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   xdg.portal.enable = true;
