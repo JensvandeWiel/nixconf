@@ -5,7 +5,7 @@
     ../../general-configuration.nix
     ./hardware-configuration.nix
   ];
-
+  boot.loader.systemd-boot.enable = true;
   boot.loader.grub.extraEntries = ''
     GRUB_SAVEDEFAULT=true
     menuentry "Windows (Main)" {

@@ -12,13 +12,8 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.default = "saved";
-
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 80;
 
@@ -268,7 +263,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 
   virtualisation.docker.enable = true;

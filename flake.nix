@@ -8,26 +8,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-wsl, lanzaboote, ... }@inputs: {
     nixosConfigurations = {
-      virtualbox = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./systems/virtualbox/configuration.nix
-          ./users/userdef.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-      tinkerlaptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./systems/tinkerlaptop/configuration.nix
-          ./users/userdef.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
       worklaptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
@@ -42,16 +32,7 @@
           ./systems/mainpc/configuration.nix
           ./users/userdef.nix
           inputs.home-manager.nixosModules.default
-        ];
-      };
-      wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = [
-          nixos-wsl.nixosModules.default
-          ./systems/wsl/configuration.nix
-          ./users/userdef.nix
-          inputs.home-manager.nixosModules.default
+          lanzaboote.nixosModules.lanzaboote
         ];
       };
     };

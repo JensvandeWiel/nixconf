@@ -2,13 +2,6 @@
 
 {
   nixpkgs.overlays = [(self: super: { 
-    discord = super.discord.overrideAttrs (_: { 
-      src = builtins.fetchTarball {
-        url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-        sha256 = "0bgvmdw65q5pr671chfihgv1wlqjkkr3rnbllr93zlf03ihx62iq";
-      };
-    });
-    
     termius = super.termius.overrideAttrs (oldAttrs: {
       nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ super.autoPatchelfHook ];
       buildInputs = (oldAttrs.buildInputs or []) ++ [ super.sqlite ];
@@ -29,10 +22,10 @@
       termius
       teamviewer
       slack
-      discord
       postman
       # Programming tools
       gh
+      vesktop
       nixd
       cmake
       php84
