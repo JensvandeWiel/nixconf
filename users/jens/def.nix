@@ -28,9 +28,10 @@
       vesktop
       nixd
       cmake
-      php84
-      php84Packages.composer
+      php85
+      php85Packages.composer
       corretto21
+      corretto25
       dart
       dotnet-sdk_9
       dotnet-sdk_8
@@ -38,7 +39,6 @@
       dotnet-runtime_9
       elixir_1_17
       erlang_27
-      flutter
       gcc
       gleam
       rebar3

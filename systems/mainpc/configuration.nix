@@ -19,11 +19,12 @@
     curl
     google-chrome
     git
-    alacritty
+    ghostty
     lf
     libnotify
     vscode
     sbctl
+    protonup-qt
   ];
 
 
