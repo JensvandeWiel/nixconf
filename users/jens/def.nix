@@ -20,10 +20,8 @@
       jetbrains-toolbox
       obsidian
       termius
-      teamviewer
       slack
       postman
-      # Programming tools
       gh
       vesktop
       nixd
@@ -32,20 +30,16 @@
       php85Packages.composer
       corretto21
       corretto25
-      dart
-      dotnet-sdk_9
-      dotnet-sdk_8
-      dotnet-runtime_8
-      dotnet-runtime_9
-      elixir_1_17
-      erlang_27
+      elixir_1_19
+      erlang
       gcc
       gleam
       rebar3
       go
       gradle
       maven
-      nodejs_22
+      nodejs_25
+      pnpm
       bun
       python3
       ruby
@@ -53,14 +47,14 @@
       zig
       sbt
       go-task
-      vlang
-      bazel
       gnupg
       pinentry-all
       zed-editor
       nerd-fonts.jetbrains-mono
       spotify
       lazydocker
+      bun
+      lmstudio
     ];
   };
 }
