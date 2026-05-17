@@ -1,12 +1,19 @@
-{pkgs, users, home-manager, ...}: 
+{
+  pkgs,
+  users,
+  home-manager,
+  ...
+}:
 
 {
-  nixpkgs.overlays = [(self: super: { 
-    termius = super.termius.overrideAttrs (oldAttrs: {
-      nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ super.autoPatchelfHook ];
-      buildInputs = (oldAttrs.buildInputs or []) ++ [ super.sqlite ];
-    });
-  })];
+  nixpkgs.overlays = [
+    (self: super: {
+      termius = super.termius.overrideAttrs (oldAttrs: {
+        nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ super.autoPatchelfHook ];
+        buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ super.sqlite ];
+      });
+    })
+  ];
 
   home-manager.users."jens" = import ./home.nix;
   users.users.jens = {
@@ -14,7 +21,11 @@
     isNormalUser = true;
     initialPassword = "12345678";
     description = "Jens van de Wiel";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [
       github-desktop
       jetbrains-toolbox
