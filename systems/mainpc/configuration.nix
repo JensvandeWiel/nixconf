@@ -32,6 +32,7 @@
     sbctl
     protonup-qt
     kdePackages.partitionmanager
+    nixpkgs-fmt
   ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
