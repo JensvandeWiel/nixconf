@@ -37,6 +37,7 @@
     #  dunst
     #
     #'')
+    pkgs.nil
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -72,6 +73,7 @@
   #
   home.sessionVariables = {
     PATH = "$HOME/.config/composer/vendor/bin:$PATH";
+    NIXOS_OZONE_WL = "1";
   };
 
   # Let Home Manager install and manage itself.

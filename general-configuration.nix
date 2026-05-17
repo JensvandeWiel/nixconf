@@ -2,15 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./users/userdef.nix
-    ];
+  imports = [
+    ./users/userdef.nix
+  ];
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Bootloader.
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -18,7 +25,6 @@
   boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 80;
 
   time.hardwareClockInLocalTime = true;
-
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -86,7 +92,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-
   # Install firefox.
   programs.firefox.enable = false;
 
@@ -94,7 +99,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home-manager.backupFileExtension = "backup";
-
 
   # Jetbrains IDE support
   nixpkgs.config.permittedInsecurePackages = [
@@ -215,7 +219,7 @@
     xorg.xkeyboardconfig
     xz
     zlib
-   ];
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -269,17 +273,16 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
-
   virtualisation.docker.enable = true;
 
   system.userActivationScripts.zshrc = "touch .zshrc";
 
   programs.direnv = {
-      enable = true;
-      enableZshIntegration = true; # see note on other shells below
-      silent = true;
-      nix-direnv.enable = true;
-    };
+    enable = true;
+    enableZshIntegration = true; # see note on other shells below
+    silent = true;
+    nix-direnv.enable = true;
+  };
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
@@ -295,7 +298,15 @@
     };
     ohMyZsh = {
       enable = true;
-      plugins = ["bazel" "docker" "git" "github" "golang" "rebar" "laravel"];
+      plugins = [
+        "bazel"
+        "docker"
+        "git"
+        "github"
+        "golang"
+        "rebar"
+        "laravel"
+      ];
       theme = "robbyrussell";
     };
   };
