@@ -66,6 +66,7 @@
       lazydocker
       bun
       lmstudio
+      jetbrains-runner
     ];
   };
 }

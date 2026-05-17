@@ -31,6 +31,7 @@
     vscode
     sbctl
     protonup-qt
+    kdePackages.partitionmanager
   ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
